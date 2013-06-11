@@ -6,7 +6,7 @@ Picpool::Application.routes.draw do
   get "welcome/index"
 
   #devise_for :users
-  devise_for :users, :skip => [:sessions]
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions]
   as :user do
     get 'signin' => 'devise/sessions#new', :as => :new_user_session
     post 'signin' => 'devise/sessions#create', :as => :user_session
