@@ -12,10 +12,12 @@ Picpool::Application.routes.draw do
   end
 
   authenticated :user do
-    root :to => "albums#home"
+    root :to => "albums#home", as: :authenticated_root
   end
   
   root :to => 'welcome#index'
+  
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
