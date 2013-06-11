@@ -58,5 +58,13 @@ module Picpool
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.to_prepare do
+        Devise::SessionsController.layout "application"
+        Devise::RegistrationsController.layout "application"
+        Devise::ConfirmationsController.layout "application"
+        Devise::UnlocksController.layout "application"            
+        Devise::PasswordsController.layout "welcome"
+    end
   end
 end
