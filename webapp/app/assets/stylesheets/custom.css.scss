@@ -68,10 +68,17 @@ textarea {
 }
 
 .center {
+  background-image:url('/assets/images/');
+  background-repeat:repeat-y;
   text-align: center;
   h1 {
     margin-bottom: 10px;
   }  
+}
+
+.hero-unit {
+        background-image: url(acid-kiss-lsdex.gif);    
+        background-repeat:repeat-x;
 }
 
 /* typography */
@@ -93,7 +100,7 @@ h2 {
   margin-bottom: 30px;
   text-align: left;
   font-weight: normal;
-  color: $grayLight;
+/*  color: $grayLight;*/
 }
 
 p {
