@@ -1,25 +1,35 @@
-<h1>Listing pools</h1>
+<div class="row">
+  <h1>Pools</h1>
+  <ul class="thumbnails files">
+    <% @pools.each do |pool| %>
+        <li class="span3" id="pool<%= pool.id %>">
+          <div class="thumbnail">
+            <% if pool.cover.blank? or Photo.find_by_id(pool.cover) %>
+              <a href="<%= pool_path(:id => pool.id) %>">
+                <img src="/assets/NoImageAvailable.jpg" alt="">
+              </a>
+            <% else %>
+              <a href="<%= pool_path(:id => pool.id) %>">
+                <img src="<%= Photo.find_by_id(pool.cover).image.thumb.url %>" alt="">
+              </a>
+            <% end %>
+            <div class="caption">
+              <p style="text-align: center;">
+                <%= pool.name.truncate(14) %>
+                <a href="<%= edit_pool_path(:id => pool.id) %>" class="btn btn-mini">
+                  <i class="icon-edit "></i>
+                  Edit
+                </a>
+                <a class="btn btn-mini btn-delete" confirm="Вы уверены?" data-method="delete" href="<%= pool_path(:id => pool.id) %>" data-remote=true>
+                  <i class="icon-trash"></i>
+                  Delete
+                </a>
+              </p>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @pools.each do |pool| %>
-  <tr>
-    <td><%= pool.name %></td>
-    <td><%= pool.description %></td>
-    <td><%= link_to 'Show', pool %></td>
-    <td><%= link_to 'Edit', edit_pool_path(pool) %></td>
-    <td><%= link_to 'Destroy', pool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Pool', new_pool_path %>
+  <%= link_to 'New', new_pool_path, :class => 'btn btn-mini' %>
+</div>

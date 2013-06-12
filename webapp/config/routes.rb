@@ -1,17 +1,14 @@
 Picpool::Application.routes.draw do
   
-  resources :photos
-  resources :pools
 
-  
-  resources :galleries do
-    resources :pictures do
+  resources :pools do
+    resources :photos do
       collection do
         post 'make_default'
       end
     end
   end
-  resources :pictures
+  resources :photos
   
   
   get "albums/home"

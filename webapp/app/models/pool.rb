@@ -1,4 +1,13 @@
 class Pool < ActiveRecord::Base
-  attr_accessible :description, :name
-  has_many :photos
+  attr_accessible :cover, :description, :name, :token
+
+  has_many :photos, :dependent => :destroy
+
+  def generate_token
+    self.token = loop do
+      random_token = SecureRandom.urlsafe_base64
+      break random_token unless Pool.where(token: random_token).exists?
+    end
+  end
+
 end

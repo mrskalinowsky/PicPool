@@ -14,7 +14,8 @@ class PoolsController < ApplicationController
   # GET /pools/1.json
   def show
     @pool = Pool.find(params[:id])
-
+    @photo = @pool.photos.build
+    @photos = Photo.find(:all, :conditions  => [ 'pool_id = ?', @pool.id ])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @pool }
@@ -25,6 +26,9 @@ class PoolsController < ApplicationController
   # GET /pools/new.json
   def new
     @pool = Pool.new
+    @pool.token = @pool.generate_token
+    @photo = @pool.photos.build
+    @photos = []
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +39,16 @@ class PoolsController < ApplicationController
   # GET /pools/1/edit
   def edit
     @pool = Pool.find(params[:id])
+    @photo = @pool.photos.build
+    @photos = []
   end
 
   # POST /pools
   # POST /pools.json
   def create
     @pool = Pool.new(params[:pool])
+    @photos = Photo.where(:pool_token => @pool.token)
+    @pool.photos << @photos
 
     respond_to do |format|
       if @pool.save

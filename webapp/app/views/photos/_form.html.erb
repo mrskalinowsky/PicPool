@@ -1,25 +1,35 @@
-<%= form_for(@photo) do |f| %>
-  <% if @photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
-
-      <ul>
-      <% @photo.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for [@pool, @photo], :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
     </div>
+  </div>
+  
+    <%= image_tag @photo.image.large.url, :id => 'cropbox' %>
+  
+  <% %w[x y w h].each do |attribute| %>
+    <%= f.hidden_field "crop_#{attribute}" %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :pool_id %><br />
-    <%= f.number_field :pool_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary  btn-mini' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                pool_path(@pool), :class => 'btn btn-mini' %>
+    <%= link_to 'Default', '', :class => 'btn btn-mini btn-success' , :id => 'make_default'%>
+
   </div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+      $('#make_default').click(function(event) {
+        event.preventDefault();
+        $.ajax({
+          url: '<%= make_default_pool_photos_path %>',
+          type: 'POST',
+          data: {id : <%= @photo.id %>, pool_id : <%= @pool.id %>}
+        });
+      });
+    });
+</script>p

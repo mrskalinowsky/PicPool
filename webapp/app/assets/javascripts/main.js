@@ -16,10 +16,10 @@ $(function () {
 
     function update(coords)
     {
-      $('#picture_crop_x').val(coords.x)
-      $('#picture_crop_y').val(coords.y)
-      $('#picture_crop_w').val(coords.w)
-      $('#picture_crop_h').val(coords.h)
+      $('#photo_crop_x').val(coords.x)
+      $('#photo_crop_y').val(coords.y)
+      $('#photo_crop_w').val(coords.w)
+      $('#photo_crop_h').val(coords.h)
     };
 
     $('#cropbox').Jcrop({
@@ -58,11 +58,11 @@ $(function () {
     downloadTemplate: function (o) {
         var rows = $();
         $.each(o.files, function (index, file) {
-            var row = $('<li class="span3" id="picture_' + file.picture_id + '">' +
+            var row = $('<li class="span3" id="photo_' + file.photo_id + '">' +
                 (file.error ? '<div class="name"></div>' +
                     '<div class="size"></div><div class="error" ></div>' :
                       '<div class="thumbnail">' +
-                        '<a href="' + file.url +'" rel="lightbox-pictures" class="picture_' + file.id + '" title="<%= pic.description %>">' +
+                        '<a href="' + file.url +'" rel="lightbox-photos" class="photo_' + file.id + '" title="<%= pic.description %>">' +
                           '<img src="" alt="">') +
                         '</a>' +
                         '<div class="caption">' +
@@ -90,9 +90,9 @@ $(function () {
                     row.find('img').prop('src', file.thumbnail_url);
                 }
                 row.find('.btn-delete')
-                    .attr('href', '/galleries/' + $("#galleryID").val() + '/pictures/' + file.picture_id);
+                    .attr('href', '/pools/' + $("#poolID").val() + '/photos/' + file.photo_id);
                 row.find('.btn-show')
-                    .attr('href', '/galleries/' + $("#galleryID").val() + '/pictures/' + file.picture_id + '/edit');
+                    .attr('href', '/pools/' + $("#poolID").val() + '/photos/' + file.photo_id + '/edit');
             }            
             rows = rows.add(row);
         });

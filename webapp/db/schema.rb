@@ -13,36 +13,22 @@
 
 ActiveRecord::Schema.define(:version => 20130611141021) do
 
-  create_table "galleries", :force => true do |t|
+  create_table "photos", :force => true do |t|
+    t.string   "description"
+    t.string   "image"
+    t.integer  "pool_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "pool_token"
+  end
+
+  create_table "pools", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "cover"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "token"
-  end
-
-  create_table "photos", :force => true do |t|
-    t.string   "name"
-    t.integer  "pool_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "pictures", :force => true do |t|
-    t.string   "description"
-    t.string   "image"
-    t.integer  "gallery_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "gallery_token"
-  end
-
-  create_table "pools", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
