@@ -1,56 +1,77 @@
 <h1>Welcome to PicPool</h1>
 
-<br />
-<%= link_to 'Pools', pools_path %>
+<div id="wrap">
+    <div class="login">
+        <h2>Sign in</h2>
 
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <div>
+            <%= f.label :email %>
+            <br />
+            <%= f.email_field :email, :autofocus => true %>
+        </div>
 
-<div class="login">
-<h2>Sign in</h2>
+        <div>
+            <%= f.label :password %>
+            <br />
+            <%= f.password_field :password %>
+        </div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+        <% if devise_mapping.rememberable? -%>
+        <div>
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+        </div>
+        <% end -%>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+        <div>
+            <%= f.submit "Sign in" %>
+        </div>
+        <% end %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+        <br />
+        <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+        <br/>
+        <br/>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end -%>
+    </div>
 
-<br/>
-<br/>
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <div class="registration">
+        <h2>Sign up</h2>
 
-</div>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-<div class="registration">
-<h2>Sign up</h2>
+        <div>
+            <%= f.label :email %>
+            <br />
+            <%= f.email_field :email, :autofocus => true %>
+        </div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+        <div>
+            <%= f.label :password %>
+            <br />
+            <%= f.password_field :password %>
+        </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+        <div>
+            <%= f.label :password_confirmation %>
+            <br />
+            <%= f.password_field :password_confirmation %>
+        </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+        <div>
+            <%= f.submit "Sign up" %>
+        </div>
+        <% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+        <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+        <br />
+        <% end -%>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
-
+    </div>
 </div>

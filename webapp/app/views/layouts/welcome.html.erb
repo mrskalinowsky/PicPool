@@ -16,8 +16,8 @@
           <%= link_to "PicPool", '#', id: "logo" %>
           <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Help",    '#' %></li>
+              <li><%= link_to "Home",    root_path %></li>
+              <li><%= link_to 'Pools', pools_path %></li>          
               <li><%= link_to "Sign in", '#' %></li>
               <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
             </ul>
