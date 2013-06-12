@@ -12,5 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require_tree .
+
+//= require jquery
+//= require jquery_ujs
+
+//= require jquery.ui.widget
+
+//= require jquery.Jcrop
+
+//= require load-image.min
+//= require canvas-to-blob.min
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require jquery.fileupload-ip
+//= require jquery.fileupload-ui
+//= require locale
+//= require main
+
+//= require photos
+
+//= require slimbox2
+
+//= require twitter/bootstrap
+//= require bootstrap-image-gallery.min
