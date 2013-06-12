@@ -1,31 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PicPool</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %>   
-</head>
-<body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
+    <head>
+        <title>PicPool</title>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <%= render 'layouts/shim' %>
+    </head>
+    <body>
+        <%= render 'layouts/header' %>
         <div class="container">
-          <%= link_to "PicPool", '#', id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    root_path %></li>
-               <li><%= link_to 'Pools', pools_path %></li> 
-              <li><%= link_to "Sign in", '#' %></li>
-              <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
-            </ul>
-          </nav>
+            <%= yield %>
         </div>
-      </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
+    </body>
 </html>
 
