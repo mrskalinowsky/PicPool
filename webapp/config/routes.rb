@@ -3,6 +3,17 @@ Picpool::Application.routes.draw do
   resources :photos
   resources :pools
 
+  
+  resources :galleries do
+    resources :pictures do
+      collection do
+        post 'make_default'
+      end
+    end
+  end
+  resources :pictures
+  
+  
   get "albums/home"
   get "welcome/index"
 

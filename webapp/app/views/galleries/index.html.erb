@@ -1,0 +1,35 @@
+<div class="row">
+  <h1>Galleries</h1>
+  <ul class="thumbnails files">
+    <% @galleries.each do |gallery| %>
+        <li class="span3" id="gallery_<%= gallery.id %>">
+          <div class="thumbnail">
+            <% if gallery.cover.blank? or !Picture.find_by_id(gallery.cover) %>
+              <a href="<%= gallery_path(:id => gallery.id) %>">
+                <img src="/assets/NoImageAvailable.jpg" alt="">
+              </a>
+            <% else %>
+              <a href="<%= gallery_path(:id => gallery.id) %>">
+                <img src="<%= Picture.find_by_id(gallery.cover).image.thumb.url %>" alt="">
+              </a>
+            <% end %>
+            <div class="caption">
+              <p style="text-align: center;">
+                <%= gallery.name.truncate(14) %>
+                <a href="<%= edit_gallery_path(:id => gallery.id) %>" class="btn btn-mini">
+                  <i class="icon-edit "></i>
+                  Edit
+                </a>
+                <a class="btn btn-mini btn-delete" confirm="Вы уверены?" data-method="delete" href="<%= gallery_path(:id => gallery.id) %>" data-remote=true>
+                  <i class="icon-trash"></i>
+                  Delete
+                </a>
+              </p>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'New', new_gallery_path, :class => 'btn btn-mini' %>
+</div>
