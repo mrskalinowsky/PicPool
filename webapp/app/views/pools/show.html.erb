@@ -37,7 +37,7 @@
                     <p style="text-align: center;">
                         <a href="/pools/<%= @pool.id %>/photos/<%= pic.id %>/edit" class="btn"> <i class="icon-edit icon-white"></i> Edit </a>
 
-                        <a class="btn btn-delete" confirm="Вы уверены?" data-method="delete" href="/pools/<%= @pool.id %>/photos/<%= pic.id %>"> <i class="icon-trash icon-white"></i> Delete </a>
+                        <a class="btn btn-delete" confirm="Вы уверены?" data-method="delete" href="/pools/<%= @pool.id %>/photos/<%= pic.id %>" data-remote=true> <i class="icon-trash icon-white"></i> Delete </a>
 
                     </p>
                 </div>
