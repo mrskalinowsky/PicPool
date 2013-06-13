@@ -60,7 +60,7 @@ html {
 
 body {
   padding-top: 60px;
-    background-image: url(grid_noise.png);    
+  background-image: url(grid_noise.png);    
   background-repeat:repeat;
 
 }
@@ -81,8 +81,11 @@ textarea {
 }
 
 .hero-unit {
+  background-color: $white
+/*
   background-image: url(acid-kiss-lsdex.gif);    
   background-repeat:repeat-x;
+*/
 
 }
 
