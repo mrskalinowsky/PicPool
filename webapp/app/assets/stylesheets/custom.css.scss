@@ -55,10 +55,14 @@ footer {
 
 html {
   overflow-y: scroll;
+  
 }
 
 body {
   padding-top: 60px;
+    background-image: url(grid_noise.png);    
+  background-repeat:repeat;
+
 }
 
 section {
@@ -70,8 +74,6 @@ textarea {
 }
 
 .center {
-  background-image:url('/assets/images/');
-  background-repeat:repeat-y;
   text-align: center;
   h1 {
     margin-bottom: 10px;
@@ -79,8 +81,9 @@ textarea {
 }
 
 .hero-unit {
-        background-image: url(acid-kiss-lsdex.gif);    
-        background-repeat:repeat-x;
+  background-image: url(acid-kiss-lsdex.gif);    
+  background-repeat:repeat-x;
+
 }
 
 /* typography */
