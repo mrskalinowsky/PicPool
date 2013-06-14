@@ -14,9 +14,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-mini btn-primary' %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                pools_path, :class => 'btn btn-mini' %>
+                pools_path, :class => 'btn' %>
   </div>
 <% end %>
 
@@ -28,7 +28,7 @@
     <div class=" fileupload-buttonbar">
       <div class="progressbar fileupload-progressbar nofade"><div style="width:0%;"></div></div>
       <span class="btn fileinput-button">
-        <i class="icon-plus icon-white"></i>
+        <i class="icon-plus"></i>
         <span><%= t('pools.add_files') %>...</span>
         <%= f.file_field :image, :multiple => true %>
       </span>

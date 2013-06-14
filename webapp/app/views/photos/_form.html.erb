@@ -13,10 +13,10 @@
   <% end %>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary  btn-mini' %>
+    <%= f.submit nil, :class => 'btn btn-primary ' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                pool_path(@pool), :class => 'btn btn-mini' %>
-    <%= link_to 'Default', '', :class => 'btn btn-mini btn-success' , :id => 'make_default'%>
+                pool_path(@pool), :class => 'btn' %>
+    <%= link_to 'Default', '', :class => 'btn btn-success' , :id => 'make_default'%>
 
   </div>
 <% end %>
@@ -32,4 +32,4 @@
         });
       });
     });
-</script>p
+</script>
