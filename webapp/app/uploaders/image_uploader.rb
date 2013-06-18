@@ -30,7 +30,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  resize_to_limit(1024, 768)
+  
+  ## REMOVED TO KEEP ORIGINAL IMAGE INTACT
+  #resize_to_limit(1024, 768)
 
   # version :large do
   #   # process :crop
