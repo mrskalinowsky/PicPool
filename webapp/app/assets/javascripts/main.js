@@ -34,7 +34,7 @@ $(function () {
 
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
-      autoUpload: true,
+      autoUpload: true,                // turned false to allow preview to be seen MATT
       uploadTemplate: function (o) {
         var rows = $();
         $.each(o.files, function (index, file) {

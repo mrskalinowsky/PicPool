@@ -12,10 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
-//= require jquery
-//= require jquery_ujs
 
 //= require jquery.ui.widget
 
@@ -36,3 +32,5 @@
 
 //= require twitter/bootstrap
 //= require bootstrap-image-gallery.min
+//= require_tree .
+
