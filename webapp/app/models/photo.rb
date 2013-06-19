@@ -1,31 +1,17 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :description, :pool_id, :image, :crop_x, :crop_y, :crop_w, :crop_h, :pool_token
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  attr_accessible :photo
+  has_attached_file :photo
 
-  belongs_to :pool
+  include Rails.application.routes.url_helpers
 
-  mount_uploader :image, ImageUploader
-
-  after_update :crop_image
-
-  def to_jq_upload
+  def to_jq_photo
     {
-      "name" => read_attribute(:image),
-      "size" => image.size,
-      "url" => image.url,
-      "thumbnail_url" => image.thumb.url,
-      "delete_url" => id,
-      "photo_id" => id,
-      "delete_type" => "DELETE"
+      "name" => read_attribute(:photo_file_name),
+      "size" => read_attribute(:photo_file_size),
+      "url" => photo.url(:original),
+      "delete_url" => photo_path(self),
+      "delete_type" => "DELETE" 
     }
   end
 
-  def crop_image
-    image.recreate_versions! if crop_x.present?
-    current_version = self.image.current_path
-    large_version = "#{Rails.root}/public" + self.image.versions[:large].to_s
-
-    FileUtils.rm(current_version)
-    FileUtils.cp(large_version, current_version)
-  end
 end

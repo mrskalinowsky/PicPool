@@ -15,11 +15,11 @@ gem 'devise'
 #MATT - 
 gem 'paperclip'
 gem 'rmagick'
-gem 'carrierwave'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '2.1'
 
-
+gem 'jquery-fileupload-rails'
+gem 'paperclip'
 
 
 gem 'omniauth'

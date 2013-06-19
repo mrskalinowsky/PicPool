@@ -12,24 +12,17 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20130611141021) do
-
+  
   create_table "photos", :force => true do |t|
-    t.string   "description"
-    t.string   "image"
-    t.integer  "pool_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "pool_token"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
-
-  create_table "pools", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "cover"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "token"
-  end
+  
+  
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
