@@ -16,10 +16,10 @@ gem 'devise'
 gem 'paperclip'
 gem 'rmagick'
 gem 'jquery-rails'
-gem 'bootstrap-sass', '2.1'
+gem 'jquery-fileupload-rails'
 gem 'debugger', group: [:development, :test]
 
-gem 'jquery-fileupload-rails'
+
 gem 'paperclip'
 
 
