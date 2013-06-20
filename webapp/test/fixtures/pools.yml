@@ -1,9 +1,26 @@
+# == Schema Information
+#
+# Table name: pools
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  photo_count :integer
+#  public      :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   name: MyString
   description: MyText
+  photo_count: 1
+  public: false
 
 two:
   name: MyString
   description: MyText
+  photo_count: 1
+  public: false

@@ -11,10 +11,6 @@
 #  updated_at  :datetime         not null
 #
 
-require 'test_helper'
-
-class PoolTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Pool < ActiveRecord::Base
+  attr_accessible :description, :name, :public
 end

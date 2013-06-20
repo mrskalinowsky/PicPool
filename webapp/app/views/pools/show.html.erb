@@ -1,0 +1,31 @@
+<div class="container">
+    <div id="push"></div>
+
+    <p id="notice">
+        <%= notice %>
+    </p>
+
+    <p>
+        <b>Name:</b>
+        <%= @pool.name %>
+    </p>
+
+    <p>
+        <b>Description:</b>
+        <%= @pool.description %>
+    </p>
+
+    <p>
+        <b>Photo count:</b>
+        <%= @pool.photo_count %>
+    </p>
+
+    <p>
+        <b>Public:</b>
+        <%= @pool.public %>
+    </p>
+
+    <%= link_to 'Edit', edit_pool_path(@pool) %> |
+    <%= link_to 'Back', pools_path %>
+
+</div>
