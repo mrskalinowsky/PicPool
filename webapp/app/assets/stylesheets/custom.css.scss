@@ -24,10 +24,10 @@ $grayMediumLight: #eaeaea;
 /* footer */
 
 footer {
+
   margin-top: 45px;
   padding-top: 5px;
-  margin-left: 50px;
-  margin-right: 50px;
+
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
@@ -54,12 +54,13 @@ footer {
 /* universal */
 
 html {
+  height: 100%;
   overflow-y: scroll;
   
 }
 
 body {
-  padding-top: 60px;
+  height: 100%;
   background-image: url(grid_noise.png);    
   background-repeat:repeat;
 
