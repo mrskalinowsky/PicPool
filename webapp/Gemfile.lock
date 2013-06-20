@@ -61,9 +61,6 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
-    flatui-rails (0.0.2)
-      railties (~> 3.1)
-      sass-rails (~> 3.2.0)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -184,7 +181,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   devise
-  flatui-rails
   jquery-fileupload-rails
   jquery-rails
   json
