@@ -14,6 +14,7 @@
 class Photo < ActiveRecord::Base
   attr_accessible :photo
   has_attached_file :photo
+  belongs_to :pool
 
   include Rails.application.routes.url_helpers
 
