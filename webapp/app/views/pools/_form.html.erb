@@ -13,20 +13,25 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :autofocus => true %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+<!--
   <div class="field">
     <%= f.label :photo_count %><br />
     <%= f.number_field :photo_count %>
-  </div>
+  </div>-->
+
   <div class="field">
-    <%= f.label :public %><br />
+    <%= f.label :public %>
     <%= f.check_box :public %>
   </div>
+  <br />
+  <br />
+  <br />
   <div class="actions">
     <%= f.submit %>
   </div>

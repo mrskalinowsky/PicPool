@@ -1,33 +1,30 @@
-<div class="container">
-    <div id="push"></div>
-    <h2>Listing pools</h2>
+<h2>Listing pools</h2>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Photo count</th>
-            <th>Public</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Photo count</th>
+        <th>Public</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
 
-        <% @pools.each do |pool| %>
-        <tr>
-            <td><%= pool.name %></td>
-            <td><%= pool.description %></td>
-            <td><%= pool.photo_count %></td>
-            <td><%= pool.public %></td>
-            <td><%= link_to 'Show', pool %></td>
-            <td><%= link_to 'Edit', edit_pool_path(pool) %></td>
-            <td><%= link_to 'Destroy', pool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </table>
+    <% @pools.each do |pool| %>
+    <tr>
+        <td><%= pool.name %></td>
+        <td><%= pool.description %></td>
+        <td><%= pool.photo_count %></td>
+        <td><%= pool.public %></td>
+        <td><%= link_to 'Show', pool %></td>
+        <td><%= link_to 'Edit', edit_pool_path(pool) %></td>
+        <td><%= link_to 'Destroy', pool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+</table>
 
-    <br />
+<br />
 
-    <%= link_to 'New Pool', new_pool_path %>
+<%= link_to 'New Pool', new_pool_path %>
 
-</div>

@@ -14,4 +14,5 @@
 class Pool < ActiveRecord::Base
   attr_accessible :description, :name, :photo_count, :public
   has_many :photos, dependent: :destroy
+  validates :name, :presence => true
 end
