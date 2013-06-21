@@ -9,6 +9,7 @@
 #  photo_updated_at   :datetime
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  pool_id            :integer
 #
 
 require 'test_helper'
