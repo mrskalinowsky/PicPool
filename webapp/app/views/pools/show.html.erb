@@ -22,6 +22,14 @@
     <%= @pool.public %>
 </p>
 
+<p>
+    <b>Add photos:</b>
+    <%= link_to 'Photos', pool_photos_path(@pool) %>
+
+</p><br />
+
+
+
 <%= link_to 'Edit', edit_pool_path(@pool) %> |
 <%= link_to 'Back', pools_path %>
 

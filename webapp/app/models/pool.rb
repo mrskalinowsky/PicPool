@@ -12,7 +12,12 @@
 #
 
 class Pool < ActiveRecord::Base
-  attr_accessible :description, :name, :photo_count, :public
+  attr_accessible :description, :name, :public
   has_many :photos, dependent: :destroy
-  validates :name, :presence => true
+  validates :description, length: { maximum: 140 }
+  validates :name, :presence => true, length: { maximum: 30 }
+    
+  default_scope order: 'pools.created_at DESC'
+  
+  
 end

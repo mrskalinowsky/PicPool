@@ -2,7 +2,8 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    @pool = Pool.find(params[:pool_id])
+    @photos = @pool.photos
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +14,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+    debugger
     @photo = Photo.find(params[:id])
 
     respond_to do |format|
@@ -39,8 +41,11 @@ class PhotosController < ApplicationController
 
   # POST /photos
   # POST /photos.json
-  def create
-    @photo = Photo.new(params[:photo])
+  def create   
+        
+    @pool = Pool.find(params[:pool_id])
+   # @photo = Photo.new(params[:photo])
+     @photo = @pool.photos.build(params[:photo])
 
     respond_to do |format|
       if @photo.save
@@ -49,7 +54,7 @@ class PhotosController < ApplicationController
           :content_type => 'text/html',
           :layout => false
         }
-        format.json { render json: {files: [@photo.to_jq_photo]}, status: :created, location: @photo }
+        format.json { render json: {files: [@photo.to_jq_photo]}, status: :created, location: [@pool, @photo] }
       else
         format.html { render action: "new" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
@@ -76,7 +81,9 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    @photo = Photo.find(params[:id])
+    debugger
+    @pool = Pool.find(params[:pool_id])
+    @photo = @pool.photos.find(params[:id])  
     @photo.destroy
 
     respond_to do |format|

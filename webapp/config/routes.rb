@@ -1,8 +1,9 @@
 Picpool::Application.routes.draw do
   
-  resources :pools 
+  resources :pools do
     resources :photos
-
+  end
+  
   get "albums/home"
   get "welcome/index"
 
