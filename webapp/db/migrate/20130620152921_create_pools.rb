@@ -7,6 +7,8 @@ class CreatePools < ActiveRecord::Migration
       t.boolean :public
 
       t.timestamps
+      
+      t.pool_id :pool_id
     end
   end
 end

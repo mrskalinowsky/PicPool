@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130620152921) do
     t.datetime "photo_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "pool_id"
   end
 
   create_table "pools", :force => true do |t|
