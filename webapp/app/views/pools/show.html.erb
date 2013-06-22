@@ -28,6 +28,16 @@
 
 </p><br />
 
+<h2>Photos</h2>
+<% unless @photos.empty? %>
+<ul>
+<% @photos.each do |photo| %>     
+    <h2> <%= photo.photo_file_name %> </h2>   
+    <%= image_tag(photo.original_image) %>
+<% end %>
+</ul>
+<% end %>
+
 
 
 <%= link_to 'Edit', edit_pool_path(@pool) %> |

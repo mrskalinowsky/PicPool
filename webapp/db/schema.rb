@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20130620152921) do
   create_table "pools", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "photo_count"
     t.boolean  "public"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

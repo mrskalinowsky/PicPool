@@ -14,6 +14,7 @@ class PoolsController < ApplicationController
   # GET /pools/1.json
   def show
     @pool = Pool.find(params[:id])
+    @photos  = @pool.photos
 
     respond_to do |format|
       format.html # show.html.erb

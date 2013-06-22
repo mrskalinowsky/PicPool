@@ -32,5 +32,12 @@ class Photo < ActiveRecord::Base
       "delete_type" => "DELETE"
     }
   end
+ 
+  
+  def original_image
+       photo.url(:original)
+  end
+    
+    
 
 end
