@@ -81,7 +81,6 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    debugger
     @pool = Pool.find(params[:pool_id])
     @photo = @pool.photos.find(params[:id])  
     @photo.destroy
