@@ -24,14 +24,17 @@
 </p>
 <br />
 
-
 <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
-    <% unless @photos.empty? %>
-        <% @photos.each do |photo| %>
-            <%= link_to image_tag(photo.original_image), photo.original_image, :data => {:gallery => 'gallery'}, :title => photo.photo_file_name %>
+    <div class="row">
+        <% unless @photos.empty? %>
+            <% @photos.each do |photo| %>
+                <ul class="span2 gallery_image" id="picture_<%= photo.id %>">
+                        <%= link_to image_tag(photo.original_image), photo.original_image, :data => {:gallery => 'gallery'}, :title => photo.photo_file_name %>
+                </ul>
+            <% end %>
         <% end %>
-    <% end %>
-     
+    </div>
+
 </div>
 
 <!-- modal-gallery is the modal dialog used for the image gallery -->
@@ -40,23 +43,26 @@
         <a class="close" data-dismiss="modal">&times;</a>
         <h3 class="modal-title"></h3>
     </div>
-    <div class="modal-body"><div class="modal-image"></div></div>
+    <div class="modal-body">
+        <div class="modal-image"></div>
+    </div>
     <div class="modal-footer">
         <a class="btn btn-primary modal-next">Next <i class="icon-arrow-right icon-white"></i></a>
         <a class="btn btn-info modal-prev"><i class="icon-arrow-left icon-white"></i> Previous</a>
         <a class="btn btn-success modal-play modal-slideshow" data-slideshow="5000"><i class="icon-play icon-white"></i> Slideshow</a>
         <a class="btn modal-download" target="_blank"><i class="icon-download"></i> Download</a>
     </div>
-</div><br />
+</div>
+<br />
 
 <!--
 
 <% unless @photos.empty? %>
 <ul>
-    <% @photos.each do |photo| %>
-    <h2> <%= photo.photo_file_name %> </h2>
-    <%= image_tag(photo.original_image) %>
-    <% end %>
+<% @photos.each do |photo| %>
+<h2> <%= photo.photo_file_name %> </h2>
+<%= image_tag(photo.original_image) %>
+<% end %>
 </ul>-->
 
 <% end %>
