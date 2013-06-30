@@ -1,3 +1,25 @@
 // Place all the styles related to the Pools controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import "bootstrap/image-gallery";
+
+
+#gallery {
+
+/*
+  padding: 10px;
+  margin: 10px;
+  width: 15%;
+  height: 14%;
+*/
+
+  
+
+
+}
+
+.gallery_image {
+    width: 150px;
+    height: 150px;
+ }

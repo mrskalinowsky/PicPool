@@ -21,6 +21,12 @@ Picpool::Application.routes.draw do
   
   root :to => 'welcome#index'
   
+  #get 'dropbox/authorize' => 'dropbox#authorize', :as => :dropbox_auth
+  #get 'dropbox/dropbox_callback' => 'dropbox#dropbox_callback', :as => :dropbox_callback
+  
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
