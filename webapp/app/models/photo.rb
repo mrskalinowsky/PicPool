@@ -28,7 +28,7 @@ class Photo < ActiveRecord::Base
       "name" => read_attribute(:photo_file_name),
       "size" => read_attribute(:photo_file_size),
       "url" => photo.url(:original),
-      "delete_url" =>  pool_photo_path(read_attribute(:pool_id), read_attribute(:id)),
+      "delete_url" =>  photo_path(read_attribute(:pool_id), read_attribute(:id)),
       "delete_type" => "DELETE"
     }
   end

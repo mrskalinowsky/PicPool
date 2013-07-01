@@ -13,9 +13,11 @@
 
 class Pool < ActiveRecord::Base
   attr_accessible :description, :name, :public
+  belongs_to :user
   has_many :photos, dependent: :destroy
   validates :description, length: { maximum: 140 }
   validates :name, :presence => true, length: { maximum: 30 }
+  validates :user_id, presence: true
     
   default_scope order: 'pools.created_at DESC'
   

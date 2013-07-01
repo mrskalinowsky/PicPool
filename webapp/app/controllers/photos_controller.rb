@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
           :content_type => 'text/html',
           :layout => false
         }
-        format.json { render json: {files: [@photo.to_jq_photo]}, status: :created, location: [@pool, @photo] }
+        format.json { render json: {files: [@photo.to_jq_photo]}, status: :created, location: [@photo] }
       else
         format.html { render action: "new" }
         format.json { render json: @photo.errors, status: :unprocessable_entity }

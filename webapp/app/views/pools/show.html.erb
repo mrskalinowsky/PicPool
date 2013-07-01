@@ -55,18 +55,6 @@
 </div>
 <br />
 
-<!--
-
-<% unless @photos.empty? %>
-<ul>
-<% @photos.each do |photo| %>
-<h2> <%= photo.photo_file_name %> </h2>
-<%= image_tag(photo.original_image) %>
-<% end %>
-</ul>-->
-
-<% end %>
-
 <%= link_to 'Edit', edit_pool_path(@pool) %> |
-<%= link_to 'Back', pools_path %>
+<%= link_to 'Back', user_pools_path(@user) %>
 

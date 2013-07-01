@@ -8,6 +8,7 @@ class CreatePools < ActiveRecord::Migration
       t.timestamps
       
       t.pool_id :pool_id
+      t.user_id :user_id
     end
   end
 end
