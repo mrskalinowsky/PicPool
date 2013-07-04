@@ -1,28 +1,33 @@
 Picpool::Application.routes.draw do
   
   
-  resources :users, :shallow => true do
-    resources :pools, :shallow => true do
-      resources :photos
-    end
-  end
-
-  
-  
   
   get "albums/home"
   get "welcome/index"
 
-  #devise_for :users
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions]
-  as :user do
-    get 'signin' => 'devise/sessions#new', :as => :new_user_session
-    post 'signin' => 'devise/sessions#create', :as => :user_session
-    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
-  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions] do 
+  
+ # match '/users', :to => 'users#index', :as => :users
+  #match '/users/:id', :to => 'users#show', :as => :user
+    
+    resources :users, :shallow => true do
+      resources :pools, :shallow => true do
+      resources :photos
+      end
+    end
+    
+    as :user do
+      get 'signin' => 'devise/sessions#new', :as => :new_user_session
+      post 'signin' => 'devise/sessions#create', :as => :user_session
+      delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
 
-  authenticated :user do
+  end
+      
+    
+
+    authenticated :user do
     root :to => "albums#home", as: :authenticated_root
+  end
   end
   
   root :to => 'welcome#index'

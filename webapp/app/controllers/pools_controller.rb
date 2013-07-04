@@ -26,7 +26,6 @@ class PoolsController < ApplicationController
   # GET /pools/new
   # GET /pools/new.json
   def new
-    
     @user = User.find(params[:user_id])
     @pool = @user.pools.build
     

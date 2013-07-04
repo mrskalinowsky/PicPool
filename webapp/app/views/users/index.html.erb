@@ -2,6 +2,8 @@
 
 <table>
     <tr>
+        <th>ID</th>
+        <th>email</th>
         <th>Name</th>
         <th></th>
         <th></th>
@@ -10,6 +12,8 @@
 
     <% @users.each do |user| %>
     <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
         <td><%= user.fb_name %></td>
         <td><%= link_to 'Pools', user_pools_path(user) %></td>
         <td><%= link_to 'Show', user %></td>
