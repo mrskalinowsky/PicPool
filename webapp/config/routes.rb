@@ -24,9 +24,10 @@ Picpool::Application.routes.draw do
   end
       
     
+  
 
     authenticated :user do
-    root :to => "albums#home", as: :authenticated_root
+    root :to => "pools#index", as: :authenticated_root
   end
   end
   
