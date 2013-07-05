@@ -10,7 +10,7 @@ Picpool::Application.routes.draw do
  # match '/users', :to => 'users#index', :as => :users
   #match '/users/:id', :to => 'users#show', :as => :user
     
-    resources :users, :shallow => true do
+    resources :users, :only => [:index, :show], :shallow => true do
       resources :pools, :shallow => true do
       resources :photos
       end
