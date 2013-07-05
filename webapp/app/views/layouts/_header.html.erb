@@ -1,19 +1,39 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
-            <%= link_to "PicPool", '#', id: "logo" %>
+            <%= link_to "PicPool", root_path, id: "logo" %>
             <nav>
+     <!--            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %> -->
                 <ul class="nav pull-right">
+
+<!--
                     <li>
-                        <%= link_to "Home",    root_path %>
+                        <%= f.label :email, style:'color:#FFFFFF;' %>
+                        <%= f.email_field :email, :autofocus => true %>
+                        <% if devise_mapping.rememberable? -%>
+                            <%= f.check_box :remember_me %> <%= f.label :remember_me, style:'color:#FFFFFF;' %>
+                        <% end -%>
+
+                    </li>
+                    <li>
+                        <%= f.label :password, style:'color:#FFFFFF;' %>
+                        <%= f.password_field :password %>
+
+                    </li>
+                    <li>
+                        <div>
+                            <%= f.submit "Sign in" %>
+                        </div>
+                    </li>-->
+
+                    <li>
+                        <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
                     </li>
                     <li>
                         <%= link_to "Users",    users_path %>
                     </li>
-                    <li>
-                        <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-                    </li>
                 </ul>
+           <!--     <% end -%> -->
             </nav>
         </div>
     </div>
