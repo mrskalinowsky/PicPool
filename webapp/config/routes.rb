@@ -1,44 +1,37 @@
 Picpool::Application.routes.draw do
-  
-  
-  
+
   get "albums/home"
   get "welcome/index"
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions] do 
-  
- # match '/users', :to => 'users#index', :as => :users
-  #match '/users/:id', :to => 'users#show', :as => :user
-    
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions] do
+
     resources :users, :only => [:index], :shallow => true do
       resources :pools, :shallow => true do
-      resources :photos
+        resources :photos
       end
     end
-    
+
     as :user do
       get 'signin' => 'devise/sessions#new', :as => :new_user_session
       post 'signin' => 'devise/sessions#create', :as => :user_session
       delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
 
-  end
-      
-    
-  
+    end
 
-    authenticated :user do
-    root :to => "pools#index", as: :authenticated_root
+
   end
-  end
+
+  
+  #authenticated :user do
+   # root :to => "pools#index"
+  #end
+  
   
   root :to => 'welcome#index'
-  
+
   #get 'dropbox/authorize' => 'dropbox#authorize', :as => :dropbox_auth
   #get 'dropbox/dropbox_callback' => 'dropbox#dropbox_callback', :as => :dropbox_callback
-  
-  
-  
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -88,7 +81,6 @@ Picpool::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-
 
   # See how all your routes lay out with "rake routes"
 
