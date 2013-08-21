@@ -29,6 +29,13 @@ Picpool::Application.routes.draw do
   
   root :to => 'welcome#index'
 
+
+  get   'dp/logout', :to => 'dropbox#destroy'
+  get   'dp/login', :to => 'dropbox#new'
+  get   'dp/callback', :to => 'dropbox#callback', :as => :dp_callback
+  get   'dp/isAuthenticated', :to => 'dropbox#isAuthenticated'
+
+
   #get 'dropbox/authorize' => 'dropbox#authorize', :as => :dropbox_auth
   #get 'dropbox/dropbox_callback' => 'dropbox#dropbox_callback', :as => :dropbox_callback
 

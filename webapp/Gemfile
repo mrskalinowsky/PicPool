@@ -18,8 +18,10 @@ gem 'rmagick'
 gem 'jquery-rails'
 gem 'jquery-fileupload-rails'
 gem 'debugger', group: [:development, :test]
+gem 'dropbox-sdk'
 
 gem 'paperclip'
+
 
 
 gem 'omniauth'
