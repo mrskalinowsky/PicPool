@@ -1,0 +1,10 @@
+<script type="text/javascript">
+function refreshParent()
+{
+  window.opener.location.reload();
+  if (window.opener.progressWindow) 
+    window.opener.progressWindow.close();
+  window.close();
+}
+refreshParent();
+</script>
